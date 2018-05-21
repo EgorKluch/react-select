@@ -3054,6 +3054,16 @@ describe('Select', () => {
 			// });
 		});
 
+		describe('autoOpen', () => {
+			it('open select options on mount', () => {
+				wrapper = createControl({
+					autoOpen: true,
+					options: defaultOptions,
+				});
+				expect(instance.state.isOpen, 'to be true');
+			});
+		});
+
 		describe('matchPos=start', () => {
 
 			beforeEach(() => {

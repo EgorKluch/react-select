@@ -746,6 +746,9 @@ var Select$1 = function (_React$Component) {
 			if (this.props.autoFocus || this.props.autofocus) {
 				this.focus();
 			}
+			if (this.props.autoOpen) {
+				this.openMenu();
+			}
 		}
 	}, {
 		key: 'componentWillReceiveProps',
@@ -983,6 +986,17 @@ var Select$1 = function (_React$Component) {
 					isOpen: true
 				});
 			}
+		}
+	}, {
+		key: 'openMenu',
+		value: function openMenu() {
+			if (this.props.disabled) {
+				return;
+			}
+
+			this.setState({
+				isOpen: true
+			});
 		}
 	}, {
 		key: 'handleMouseDownOnMenu',
@@ -1940,6 +1954,7 @@ Select$1.propTypes = {
 	inputRenderer: PropTypes.func, // returns a custom input component
 	instanceId: PropTypes.string, // set the components instanceId
 	isLoading: PropTypes.bool, // whether the Select is loading externally or not (such as options being loaded)
+	isOpen: PropTypes.bool,
 	joinValues: PropTypes.bool, // joins multiple values into a single form field with the delimiter (legacy mode)
 	labelKey: PropTypes.string, // path of the label value in option objects
 	matchPos: PropTypes.string, // (any|start) match the start or entire string when filtering
